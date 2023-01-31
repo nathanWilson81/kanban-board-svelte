@@ -1,6 +1,6 @@
 <script lang="ts">
-	export let title: string;
-	export let description: string;
+	export let title: string
+	export let description: string
 </script>
 
 <div class="flex flex-col justify-between p-4 leading-normal bg-gray-500 rounded drop-shadow-lg">

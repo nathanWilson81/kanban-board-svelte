@@ -47,4 +47,4 @@ export const tasks = [
 		title: 'Get to it',
 		message: 'I finished this'
 	}
-];
+]

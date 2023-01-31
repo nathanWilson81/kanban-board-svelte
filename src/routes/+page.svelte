@@ -2,10 +2,11 @@
 	import { tasks } from '../mockData';
 	import Card from '../components/Card.svelte';
 
-	let todos = tasks.filter((task) => task.status === 'TODO');
-	let inProgress = tasks.filter((task) => task.status === 'IN_PROGRESS');
-	let dones = tasks.filter((task) => task.status === 'DONE');
-	const data = [
+	const todos = tasks.filter((task) => task.status === 'TODO');
+	const inProgress = tasks.filter((task) => task.status === 'IN_PROGRESS');
+	const dones = tasks.filter((task) => task.status === 'DONE');
+
+	const columns = [
 		{ title: 'Todo', data: todos },
 		{ title: 'In Progress', data: inProgress },
 		{ title: 'Done', data: dones }
@@ -13,7 +14,7 @@
 </script>
 
 <main class="grid grid-cols-3 gap-12 p-4 h-screen bg-gray-900">
-	{#each data as column}
+	{#each columns as column}
 		<section class="flex flex-col gap-4 p-4 rounded">
 			<h2 class="text-white">{column.title}</h2>
 			{#each column.data as card}

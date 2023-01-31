@@ -1,2 +1,24 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import { tasks } from '../mockData';
+	import Card from '../components/Card.svelte';
+
+	let todos = tasks.filter((task) => task.status === 'TODO');
+	let inProgress = tasks.filter((task) => task.status === 'IN_PROGRESS');
+	let dones = tasks.filter((task) => task.status === 'DONE');
+	const data = [
+		{ title: 'Todo', data: todos },
+		{ title: 'In Progress', data: inProgress },
+		{ title: 'Done', data: dones }
+	];
+</script>
+
+<main class="grid grid-cols-3 gap-12 p-4 h-screen bg-gray-900">
+	{#each data as column}
+		<section class="flex flex-col gap-4 p-4 rounded">
+			<h2 class="text-white">{column.title}</h2>
+			{#each column.data as card}
+				<Card title={card.title} description={card.message} />
+			{/each}
+		</section>
+	{/each}
+</main>
